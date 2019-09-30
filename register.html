@@ -62,7 +62,7 @@
           <div class="row">
             <div class="col-md-9 col-lg-8 mx-auto">
 
-              <form action="home.html" method="post">
+              <form id="contactForm">
                 <div class="form-label-group">
                 <input type="text" id="inputUserame" class="form-control" placeholder="Username" required autofocus>
                 <label for="inputUserame">Username</label>
@@ -85,12 +85,12 @@
                 <label for="inputConfirmPassword">Confirm password</label>
               </div>
 
-              
+
 
               <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit"  onmouseover="get_started(this)" >Register</button>
-              <a class="d-block text-center mt-2 small" href="sign.html">Already Have an Account ?</a>
+              <a class="d-block text-center mt-2 small" href="log.html">Already Have an Account ?</a>
               <hr class="my-4">
-              <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i> Sign up with Google</button>
+
 
               </form>
             </div>
@@ -109,6 +109,8 @@
     </div>
   </footer>
 
+  <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -120,6 +122,9 @@
   <!-- Custom scripts for this template -->
   <script src="js/creative.min.js"></script>
   <script src="extra.js"></script>
+
+
+  <script src="main.js"></script>
 
 </body>
 

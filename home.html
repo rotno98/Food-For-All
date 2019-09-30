@@ -1,335 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>just a test</title>
 
-<head>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
 
-  <title>Food For All | Home </title>
+    <!-- Plugin CSS -->
+    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-  <!-- Font Awesome Icons -->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="./test.css">
+  </head>
+  <body>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet">
-  <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
 
-  <!-- Plugin CSS -->
-  <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
 
-  <!-- Theme CSS - Includes Bootstrap -->
-  <link href="css/home.css" rel="stylesheet">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
 
-  <style media="screen">
-  .userinfo {
-    float: left;
-    padding: 0px 12px;
-
-    width: 70%;
-    border-left: none;
-    height: 300px;
-    display: none;
-  }
-
-      * {
-      box-sizing: border-box;
-    }
-
-    #myInput {
-      background-image: url('/css/searchicon.png');
-      background-position: 10px 12px;
-      background-repeat: no-repeat;
-      width: 100%;
-      font-size: 16px;
-      padding: 12px 20px 12px 40px;
-      border: 1px solid #ddd;
-      margin-bottom: 12px;
-    }
-
-    #myUL {
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    #myUL li a {
-      border: 1px solid #ddd;
-      margin-top: -1px; /* Prevent double borders */
-      background-color: #f6f6f6;
-      padding: 12px;
-      text-decoration: none;
-      font-size: 18px;
-      color: black;
-      display: block
-    }
-
-    #myUL li a:hover:not(.header) {
-      background-color: #eee;
-    }
-
-    .custom-lbl{
-      border:  1px solid #ddd;
-      background-color: #fff;
-      padding:12px;
-    }
-
-  </style>
-
-</head>
-
-<body id="page-top">
-
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-
-          <li class="nav-item">
-            <a class="nav-link" href="about.html"> About </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="user.html"> User Profile </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html"> Contact </a>
-          </li>
-        </ul>
+            <li class="nav-item">
+              <a class="nav-link" href="about2.html"> About </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="file.html"> Post </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact2.html"> Contact </a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-primary" onclick="logout()">Log out</a>
+            </li>
+          </ul>
+        </div>
       </div>
+    </nav>
+
+
+    <div class="container" id="contentHolder">
+      <h1 class="my-4">
+        <small> </small>
+      </h1>
+      
+
     </div>
-  </nav>
 
 
 
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
 
 
-  <!-- Page Content -->
-  <div class="container">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
 
-    <div class="row">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
-      <!-- Blog Entries Column -->
-      <div class="col-md-8">
 
-        <h1 class="my-4">
-          <small> </small>
-        </h1>
 
-        <!-- Blog Post -->
-        <div class="card mb-4">
-          <img class="card-img-top" src="food1.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h2 class="card-title">Post Title</h2>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-            <a href="#" class="btn btn-primary">Read More &rarr;</a>
-          </div>
-          <div class="card-footer text-muted">
-            Posted on January 1, 2017 by
-            <div id="userX">
-                <a href="#" onmouseover="bonjo(event,'user1')" onmouseout="bonjo_out(event,'user1')">User1</a>
-            </div>
+    <script src="test2.js"></script>
 
-            <div id="user1" class="userinfo">
-                <h3>User1</h3>
-                <h5>Posted on January 1, 2017 </h5>
-                <p>Info: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta</p>
-            </div>
-
-          </div>
-
-
-        </div>
-
-        <!-- Blog Post -->
-        <div class="card mb-4">
-          <img class="card-img-top" src="food2.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h2 class="card-title">Post Title</h2>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-            <a href="#" class="btn btn-primary">Read More &rarr;</a>
-          </div>
-          <div class="card-footer text-muted">
-            Posted on January 1, 2018 by
-            <div id="userX">
-                <a href="#" onmouseover="bonjo(event,'user2')" onmouseout="bonjo_out(event,'user2')">User2</a>
-            </div>
-
-            <div id="user2" class="userinfo">
-                <h3>User2</h3>
-                <h5>Posted on January 1, 2018 </h5>
-                <p>Info: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Blog Post -->
-
-
-
-        <div class="card mb-4">
-          <img class="card-img-top" src="food3.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h2 class="card-title">Post Title</h2>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-            <a href="#" class="btn btn-primary">Read More &rarr;</a>
-          </div>
-          <div class="card-footer text-muted">
-            Posted on January 1, 2019 by
-            <div id="userX">
-                <a href="#" onmouseover="bonjo(event,'user3')" onmouseout="bonjo_out(event,'user3')">User3</a>
-            </div>
-
-            <div id="user3" class="userinfo">
-              <h3>User3</h3>
-              <h5>Posted on January 1, 2019 </h5>
-              <p>Info: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta</p>
-            </div>
-          </div>
-
-
-        </div>
-
-
-
-        <!-- Pagination -->
-        <ul class="pagination justify-content-center mb-4">
-          <li class="page-item">
-            <a class="page-link" href="#">&larr; Older</a>
-          </li>
-          <li class="page-item disabled">
-            <a class="page-link" href="#">Newer &rarr;</a>
-          </li>
-        </ul>
-
-      </div>
-
-      <!-- Sidebar Widgets Column -->
-      <div class="col-md-4">
-
-        <!-- Search Widget -->
-        <div class="card my-4">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search for...">
-          <span class="input-group-btn">
-            <button class="btn btn-secondary" id="search "type="button" name="search">Go!</button>
-          </span>
-        </div>
-        </div>
-
-
-
-
-        <div class="input-group">
-
-          <span class="input-group-btn">
-
-
-            <label for="address" class="custom-lbl">Your nearest zones</label>
-            <ul id="myUL">
-              <li><a href="#">Cantonment</a></li>
-              <li><a href="#">Mirpur</a></li>
-
-              <li><a href="#">Kochukhet</a></li>
-              <li><a href="#">ECB</a></li>
-
-              <li><a href="#">Farmgate</a></li>
-              <li><a href="#">Shahbag</a></li>
-              
-            </ul>
-
-            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for more zones.." title="Type in a name">
-          </span>
-        </div>
-        </div>
-
-
-
-        </div>
-
-
-
-      </div>
-    <!-- /.row -->
-
-  </div>
-  <!-- /.container -->
-
-
-
-
-  <!-- Footer -->
-  <footer class="bg-light py-5">
-    <div class="container">
-      <div class="small text-center text-muted">Copyright &copy; 2019 - Start Bootstrap</div>
-    </div>
-  </footer>
-
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Plugin JavaScript -->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-  <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-
-  <!-- Custom scripts for this template -->
-  <script src="js/creative.min.js"></script>
-
-
-
-  <script >
-
-
-      function bonjo(evt, userName)
-      {
-          var i, userinfo, tablinks;
-          userinfo = document.getElementsByClassName("userinfo");
-          for (i = 0; i < userinfo.length; i++)
-          {
-              userinfo[i].style.display = "none";
-          }
-
-          document.getElementById(userName).style.display = "block";
-          evt.currentTarget.className += " active";
-      }
-
-      function bonjo_out(evt,userName)
-      {
-        document.getElementById(userName).style.display = "none";
-      }
-
-
-
-
-
-      function myFunction() {
-          var input, filter, ul, li, a, i, txtValue;
-          input = document.getElementById("myInput");
-          filter = input.value.toUpperCase();
-          ul = document.getElementById("myUL");
-          li = ul.getElementsByTagName("li");
-          for (i = 0; i < li.length; i++) {
-              a = li[i].getElementsByTagName("a")[0];
-              txtValue = a.textContent || a.innerText;
-              if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                  li[i].style.display = "";
-              } else {
-                  li[i].style.display = "none";
-              }
-          }
-      }
-
-
-  </script>
-
-
-</body>
-
+  </body>
 </html>
