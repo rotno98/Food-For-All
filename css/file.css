@@ -10807,6 +10807,8 @@ ul{
 
 .wrapper > *{
   padding: 1em;
+  padding-left: 2em;
+  padding-right: 2em;
 }
 
 .company-info{
@@ -10833,6 +10835,7 @@ ul{
 
 .contact form label{
   display:block;
+  text-align: center;
 }
 
 .contact form p{
@@ -10850,7 +10853,7 @@ ul{
 }
 
 .contact form button{
-  background:#c9e6ff;
+  background:#f4623a;
   border:0;
   text-transform: uppercase;
 }
