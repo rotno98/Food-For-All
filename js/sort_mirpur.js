@@ -1,4 +1,3 @@
-// Your web app's Firebase configuration
 
 var firebaseConfig = {
   apiKey: "AIzaSyAapDTx27pzMe7K7nMzFvJenzevIioe-2M",
@@ -11,51 +10,45 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-
+  var flag=false;
 
 $(document).ready(function(){
-  firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-      //document.location.href="./index.html";
-      var token=firebase.auth().currentUser.uid;
-      var token2=firebase.auth().currentUser.email;
-      console.log("a user logged in " + firebase.auth().currentUser.uid +" " +firebase.auth().currentUser.email);
+  //firebase.auth().onAuthStateChanged(function(user) {
 
 
-      var user = firebase.auth().currentUser;
+
+      //var user = firebase.auth().currentUser;
+
+        //console.log('flag');
+
+        //var flag=false;
+
+              flag=sort();
 
 
-      queryDatabase();
-    } else {
-      // No user is signed in.
-      window.alert("NOPW");
-      document.location.href="./log.html"
-    }
-  });
+      //clickmeh();
+
+  //});
 });
 
-
-function queryDatabase()
+function sort()
 {
-  firebase.database().ref('/Posts/').once('value').then(function(snapshot){
+  firebase.database().ref('/Posts/').orderByChild('zone').equalTo('Mirpur').once('value').then(function(snapshot){
 
 
-    var PostObject=snapshot.val();
-    var currentRow;
+    var currentRow1;
+    snapshot.forEach(child=>{
+      var PostObject=child.val();
 
-    var keys=Object.keys(PostObject);
-
-    for(var i=0;i<keys.length;i++)
-    {
-      var currentObject=PostObject[keys[i]];
+      var currentObject=PostObject;
 
 
-      currentRow=document.createElement("div");
-      $(currentRow).addClass("row");
+      currentRow1=document.createElement("div");
+      $(currentRow1).addClass("row");
 
       dummycol=document.createElement("div");
       $(dummycol).addClass("col-md-8");//setting class col-md-8
-      $(currentRow).append(dummycol);
+      $(currentRow1).append(dummycol);
 
 
       dummycol2=document.createElement("div");//setting class card mb-4
@@ -70,7 +63,7 @@ function queryDatabase()
       $(dummycolfooter).addClass("card-footer text-muted");
       $(dummycol2).append(dummycolfooter);
 
-      $("#contentHolder").append(currentRow);
+      $("#contentHolder").append(currentRow1);
 
 
       var col=document.createElement("div");
@@ -122,20 +115,13 @@ function queryDatabase()
       $(dummycolname).append(desc);
       //$(dummycolname).append(but);
 
-      $(currentRow).append(col);
+      $(currentRow1).append(col);
+      });
 
       console.log("done");
 
-    }
-    //console.log(keys);//to check if its working
-
 
   });
-}
-
-function logout(){
-  firebase.auth().signOut();
-  document.location.href="./log.html";
 }
 
 
@@ -157,9 +143,9 @@ function clickmeh()
     else if(document.getElementById('zone').value=='Tejgaon')
           document.location.href='home_sort_Tejgaon.html';
 
+    }
+
+function goto()
+{
+  document.location.href="home.html";
 }
-
-
-//var ts = new Date();
-//console.log(ts.toDateString());
-//console.log(ts.toLocaleString());

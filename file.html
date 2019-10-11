@@ -11,6 +11,30 @@
 
   <link href="css/file.css" rel="stylesheet">
 
+  <style media="screen">
+  #Progress_Status {
+      width: 50%;
+      height: 26px;
+      background-color: #ddd;
+      border: solid;
+      }
+
+      #myprogressBar {
+          width: 1%;
+          height: 20px;
+          background-color: #4CAF50;
+          text-align: middle;
+          line-height: 32px;
+          color: black;
+      }
+      #zone{
+        width: 100%;
+        height: 64%;
+      }
+
+
+  </style>
+
 </head>
 <body>
 
@@ -52,34 +76,57 @@
         <form id="contactForm">
           <p>
             <label>Name</label>
-            <input type="text" name="name" id="name" required>
+            <input autofocus type="text" name="name" id="name" placeholder="Enter user name..." required>
           </p>
           <p>
             <label>Post Title</label>
-            <input type="text" name="ptitle" id="ptitle" required>
+            <input  type="text" name="ptitle" id="ptitle" placeholder="Enter the title of post..." required>
           </p>
-          <p>
+          <!--<p>
             <label>Email Address</label>
             <input type="email" name="email" id="email" required>
+          </p>-->
+          <p>
+            <label >Description</label>
+            <input  type="text" name="desc" id="desc" placeholder="Enter description here..." required>
           </p>
           <p>
-            <label>Description</label>
-            <input type="text" name="desc" id="desc" required>
-          </p>
-          <p>
-            <label>zone</label>
-            <input type="text" name="zone" id="zone" required>
+            <label>Zone</label>
+            <select id="zone" class="input-txt" name="zone">
+                <option value="Farmgate">Farmgate</option>
+                <option value="Tejgaon">Tejgaon</option>
+                <option value="Kochukhet">Kochukhet</option>
+                <option value="Mirpur">Mirpur</option>
+                <option value="ECB">ECB</option>
+            </select>
           </p>
           <p>
             <label>Image</label>
-            <input type="file" name="image" id="im_file">
+            <input type="file" name="image" id="im_file" required>
+          </p>
+          <p>
+            <label>Contact No</label>
+            <input type="text" name="contact" id="contact" placeholder="Enter user contact no..." required>
           </p>
 
+
+
           <p class="full">
-            <button type="submit" >Submit</button>
+            <button type="submit" onclick="goto()" id="submit">Submit</button>
           </p>
         </form>
-      </div>
+
+
+
+          </div>
+
+
+          <div > <h2></h2> </div>
+
+        <label for="Upload progress">File upload progress</label>
+        <div id="Progress_Status">
+          <div id="myprogressBar"></div>
+        </div>
 
   </div>
 

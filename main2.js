@@ -28,6 +28,10 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 
     var user = firebase.auth().currentUser;
+
+
+    //console.log(user.name);
+    //console.log(user.mail);
   } else {
     // No user is signed in.
     window.alert("NOPW");
@@ -149,11 +153,24 @@ var fileButton=getInputVal('im_file');
 
 document.getElementById('im_file').addEventListener('change',function(e){
 
+
+    if(!$("#name").val()||!$("#desc").val()||!$("#ptitle").val()||!$("#zone").val()||!$('#contact').val())
+    {
+      window.alert("Please fill up other sections before uploading");
+      document.getElementById('contactForm').reset();
+    }
+
+
+    else {
+
+
+
     var file=e.target.files[0];
 
     var storageRef=firebase.storage().ref('sweet/'+ file.name);
 
     var task=storageRef.put(file);
+
 
     task.on('state_changed',
 
@@ -162,6 +179,7 @@ document.getElementById('im_file').addEventListener('change',function(e){
         //var percentage=(snapshot.bytesTransferred/snapshot.totalBytes)*100;
 
         //uploader.value=percentage;
+        update();
     },
 
 
@@ -187,7 +205,9 @@ document.getElementById('im_file').addEventListener('change',function(e){
         name:$("#name").val(),
         title:$("#ptitle").val(),
         desc:$("#desc").val(),
-        mail:$("#email").val(),
+        //mail:$("#email").val(),
+        contact:$("#contact").val(),
+        mail:firebase.auth().currentUser.email,
         zone:$("#zone").val(),
         time:ts.toLocaleString()
       };
@@ -197,8 +217,42 @@ document.getElementById('im_file').addEventListener('change',function(e){
 
       console.log('done 2');
 
+
+
     }
 
-  );
+  );//task on end
 
+  }//if/else end right ere
 });
+
+
+
+function update() {
+  var element = document.getElementById("myprogressBar");
+  var width = 1;
+  var identity = setInterval(scene, 10);
+  function scene() {
+    if (width >= 100) {
+      clearInterval(identity);
+    } else {
+      width++;
+      element.style.width = width + '%';
+    }
+  }
+}
+
+function goto()
+{
+  if(!$("#name").val()||!$("#desc").val()||!$("#ptitle").val()||!$("#zone").val()||!$('#contact').val())
+  {
+    window.alert("Please fill up the form first");
+  }
+  else {
+
+          window.alert("A new post has been made by the user. Refreshing this page");
+
+
+        }
+
+}
